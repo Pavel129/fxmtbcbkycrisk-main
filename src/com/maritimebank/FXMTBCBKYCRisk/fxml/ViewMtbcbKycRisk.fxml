@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--suppress ALL -->
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maritimebank.FXMTBCBKYCRisk.ViewMtbcbKycRiskController">
+    <JInvToolBar fx:id="toolBar" />
+    <JInvTabPane>
+        <tabs>
+            <Tab fx:id="TAB_RISK" text="%TAB.RISK">
+                <VBox>
+    <SplitPane dividerPositions="0.8" orientation="VERTICAL" VBox.vgrow="ALWAYS">
+    <JInvTable fx:id="MTB_CB_KYC_RISK_FILE" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+        <columns>
+            <JInvTableColumn fx:id="ICKRFID" text="%ICKRFID" fieldName="ICKRFID"  />
+            <JInvTableColumnDate fx:id="DCKRFDATE" text="%DCKRFDATE" fieldName="DCKRFDATE"  />
+            <JInvTableColumn fx:id="CCKRFNAME" text="%CCKRFNAME" fieldName="CCKRFNAME" prefWidth="300.0" />
+        </columns>
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+        </VBox.margin>
+    </JInvTable>
+    <JInvTable fx:id="MTB_CB_KYC_RISK_LIST" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+        <columns>
+            <JInvTableColumn fx:id="ICKRFID_LIST" text="%ICKRFID" fieldName="ICKRFID"  />
+            <JInvTableColumn fx:id="INN" text="%INN" fieldName="INN" prefWidth="120" />
+            <JInvTableColumn fx:id="CLIENT_TYPE" text="%CLIENT_TYPE" fieldName="CLIENT_TYPE"  />
+            <JInvTableColumn fx:id="RISK_LEVEL" text="%RISK_LEVEL" fieldName="RISK_LEVEL"  />
+            <JInvTableColumnDate fx:id="RISK_DATE" text="%RISK_DATE" fieldName="RISK_DATE" prefWidth="120" />
+            <JInvTableColumnMoney fx:id="MAINRISK" text="%MAINRISK" fieldName="MAINRISK"  />
+            <JInvTableColumnMoney fx:id="ADDRISK1" text="%ADDRISK1" fieldName="ADDRISK1"  />
+            <JInvTableColumnMoney fx:id="ADDRISK2" text="%ADDRISK2" fieldName="ADDRISK2"  />
+            <JInvTableColumnMoney fx:id="ADDRISK3" text="%ADDRISK3" fieldName="ADDRISK3"  />
+        </columns>
+        <VBox.margin>
+            <Insets bottom="5" left="5.0" right="5.0" />
+        </VBox.margin>
+    </JInvTable>
+    </SplitPane>
+    <GridPane hgap="5" vgap="5">
+        <JInvLabel text="%DESCR0" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <JInvTextField editable="false" prefWidth="800" fx:id="DESCR0" fieldName="DESCR0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <JInvLabel text="%DESCR1" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <JInvTextField editable="false" prefWidth="800" fx:id="DESCR1" fieldName="DESCR1" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <JInvLabel text="%DESCR2" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <JInvTextField editable="false" prefWidth="800" fx:id="DESCR2" fieldName="DESCR2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <JInvLabel text="%DESCR3" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <JInvTextField editable="false" prefWidth="800" fx:id="DESCR3" fieldName="DESCR3" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+        </VBox.margin>
+    </GridPane>
+                </VBox>
+            </Tab>
+            <Tab fx:id="TAB_ACT" text="%TAB.ACT">
+                <VBox>
+                    <JInvToolBar fx:id="toolBarAct" />
+                    <JInvTable fx:id="MTB_CB_KYC_RISK_ACT" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <JInvTableColumn fx:id="ICKRAID" text="%ICKRAID" fieldName="ICKRAID"  />
+                            <JInvTableColumn fx:id="ICUSNUM" text="%ICUSNUM" fieldName="ICUSNUM"  />
+                            <JInvTableColumn fx:id="CCUSNUMNAL" text="%CCUSNUMNAL" fieldName="CCUSNUMNAL"  />
+                            <JInvTableColumn fx:id="CCUSNAME_SH" text="%CCUSNAME_SH" fieldName="CCUSNAME_SH"  />
+                            <JInvTableColumnDate fx:id="DACTION" text="%DACTION" fieldName="DACTION"  />
+                            <JInvTableColumnDate fx:id="DINFORM" text="%DINFORM" fieldName="DINFORM"  />
+                            <JInvTableColumn fx:id="TINFORM" text="%TINFORM" fieldName="TINFORM"  />
+                            <JInvTableColumn fx:id="TINFDESCR" text="%TINFDESCR" fieldName="TINFDESCR"  />
+                        </columns>
+                        <VBox.margin>
+                            <Insets left="5.0" right="5.0" />
+                        </VBox.margin>
+                    </JInvTable>
+                    <DSInfoBar fx:id="MTB_CB_KYC_RISK_ACT$MARK">
+                        <VBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" />
+                        </VBox.margin>
+                    </DSInfoBar>
+                </VBox>
+        </Tab>
+    </tabs>
+    </JInvTabPane>
+</VBox>

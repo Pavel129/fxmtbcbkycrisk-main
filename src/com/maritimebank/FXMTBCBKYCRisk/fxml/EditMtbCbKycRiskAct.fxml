@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import ru.inversion.fx.form.lov.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maritimebank.FXMTBCBKYCRisk.EditMtbCbKycRiskActController">
+    <children>
+    <GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+        <children>
+            <JInvLabel fx:id="lblICKRAID" text="%E_ICKRAID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <JInvLongField fx:id="ICKRAID" minWidth="100" editable="false" maxWidth="-Infinity" prefColumnCount="0" fieldName="ICKRAID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <JInvLabel fx:id="lblICUSNUM" text="%E_ICUSNUM" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <JInvLongField fx:id="ICUSNUM" maxWidth="100" validateFromLOV="true" prefColumnCount="0" fieldName="ICUSNUM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <JInvLabel fx:id="lblICUSNUMblank" text="" minWidth="200" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <JInvTextField fx:id="CCUSNAME" editable="false" GridPane.columnSpan="3" focusTraversable="false" prefWidth="600" prefColumnCount="0"  GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <JInvLabel fx:id="lblDACTION" text="%E_DACTION" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <JInvCalendar fx:id="DACTION" fieldName="DACTION" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <JInvLabel fx:id="lblDINFORM" text="%E_DINFORM" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <JInvCalendar fx:id="DINFORM" fieldName="DINFORM" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JInvLabel fx:id="lblTINFORM" text="%E_TINFORM" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <JInvLongField fx:id="TINFORM" lovClassName="com.maritimebank.FXMTBCBKYCRisk.PAbbLov" maxWidth="-Infinity" prefColumnCount="1" fieldName="TINFORM" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        </children>
+        <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+    </GridPane>
+    <ButtonBar buttonMinWidth="80.0">
+    <buttons>
+        <JInvButton fx:id="btOK"  text="%EDIT.OK" />
+        <JInvButton fx:id="btCancel" text="%EDIT.CANCEL" />
+    </buttons>
+    </ButtonBar>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</VBox>

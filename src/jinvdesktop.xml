@@ -1,0 +1,5 @@
+<JInvDesktop>
+  <startclass description="MTB. Реестр уровней риска ЦБ-ЗСК" name="com.maritimebank.FXMTBCBKYCRisk.MTBCBKYCRiskMain" startup="true">
+    <method description="Реестр уровней риска ЦБ-ЗСК" mode="NONE">showViewMtbcbKycRisk</method>
+  </startclass>
+</JInvDesktop>

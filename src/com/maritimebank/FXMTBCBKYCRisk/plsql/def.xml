@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql_expr_list>
+    <expression name="file_load" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	:pID:=mtb.cb_kyc_risk.file_load( :filename, :filebody, :cerrmsg);
+	COMMIT;
+END;
+        ]]></script>
+		<parameters>
+			<parameter name="filename"	mode="IN"	sqlType="VARCHAR"	javaType="String" />
+            <parameter name="filebody"  mode="IN"	sqlType="BLOB"		javaType="Blob" />
+            <parameter name="pID"	    mode="OUT"	sqlType="NUMERIC"	javaType="Long" />
+			<parameter name="cerrmsg"	mode="OUT"	sqlType="VARCHAR"	javaType="String" />
+        </parameters>
+    </expression>
+    <expression name="file_delete" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	:ret:=mtb.cb_kyc_risk.file_delete( :pID, :cerrmsg);
+	COMMIT;
+END;
+        ]]></script>
+        <parameters>
+            <parameter name="pID"	    mode="IN"	sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="ret"	    mode="OUT"	sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="cerrmsg"	mode="OUT"	sqlType="VARCHAR"	javaType="String" />
+        </parameters>
+    </expression>
+    <expression name="get_in_folder" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	select 'C:\XXI', NULL
+	into :in_folder, :in_folder_arh
+	from dual
+	;
+END;
+        ]]></script>
+        <parameters>
+            <parameter name="in_folder"     mode="OUT"	sqlType="VARCHAR"	javaType="String" />
+            <parameter name="in_folder_arh" mode="OUT"	sqlType="VARCHAR"	javaType="String" />
+        </parameters>
+    </expression>
+
+    <expression name="new_act" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	insert into mtb.cb_kyc_risk_act(icusnum, daction, dinform, tinform)
+	values(:picusnum, :pdaction, :pdinform, :ptinform)
+	returning ickraid into :pid
+	;
+	commit;
+END;
+        ]]></script>
+        <parameters>
+            <parameter name="pid"     mode="OUT"	sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="picusnum" mode="IN"	sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="pdaction" mode="IN"	sqlType="DATE"	javaType="Date" />
+            <parameter name="pdinform" mode="IN"	sqlType="DATE"	javaType="Date" />
+            <parameter name="ptinform" mode="IN"	sqlType="NUMERIC"	javaType="Long" />
+        </parameters>
+    </expression>
+    <expression name="edit_act" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	update mtb.cb_kyc_risk_act
+	set  icusnum =:picusnum
+	    ,daction =:pdaction
+	    ,dinform =:pdinform
+	    ,tinform =:ptinform
+	where ickraid=:pid
+	returning ickraid into :rid
+	;
+	commit;
+END;
+        ]]></script>
+        <parameters>
+            <parameter name="rid"     mode="OUT"	sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="pid"     mode="IN"	    sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="picusnum" mode="IN"	sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="pdaction" mode="IN"	sqlType="DATE"	javaType="Date" />
+            <parameter name="pdinform" mode="IN"	sqlType="DATE"	javaType="Date" />
+            <parameter name="ptinform" mode="IN"	sqlType="NUMERIC"	javaType="Long" />
+        </parameters>
+    </expression>
+    <expression name="del_act" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	delete mtb.cb_kyc_risk_act
+	where ickraid=:pid
+	;
+	commit;
+END;
+        ]]></script>
+        <parameters>
+            <parameter name="pid"     mode="IN"	    sqlType="NUMERIC"	javaType="Long" />
+        </parameters>
+    </expression>
+    <expression name="export_act" lang="PL/SQL" >
+        <script><![CDATA[
+BEGIN
+	:pReportXml:=mtb.cb_kyc_risk.export_act_xml(pMarkerId => :pMarkerId);
+END;
+        ]]></script>
+        <parameters>
+            <parameter name="pMarkerId"     mode="IN"	    sqlType="NUMERIC"	javaType="Long" />
+            <parameter name="pReportXml"     mode="OUT"	    sqlType="CLOB"	javaType="java.sql.Clob" />
+        </parameters>
+    </expression>
+</sql_expr_list>

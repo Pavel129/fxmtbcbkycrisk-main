@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.maritimebank.FXMTBCBKYCRisk.MTBCBKYCRiskMain
+Class-Path: FXbicomp.jar JInvFore.jar javaee-api.jar
+
